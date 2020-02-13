@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+fold_nm="paper_run"
+echo mkdir data_sets
+for ((i=32;i<33;i++))
+{
+	temp_nm="$fold_nm$i"
+	echo $temp_nm
+	cd $temp_nm 	
+	cp -r proc_data ../data_sets/$i
+	cd ..
+	cp a_import_run_data.m data_sets/$i
+	echo copied proc_data of $temp_nm
+}
+exit 0

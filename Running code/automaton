@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+fold_nm="run"
+for ((i=9;i<11;i++))
+{
+	temp_nm="$fold_nm$i"
+	echo $temp_nm
+	cd $temp_nm 
+	make
+	#create the pbsfile
+	pbsfile="/home/research/gowthamkuntumalla/run$i/clust_run$i.pbs"
+	cat <<'EOF' > $pbsfile
+		#!/bin/bash
+		#PBS -l nodes=1:ppn=4
+		#PBS -l walltime=50:00:00
+		cd /home/research/gowthamkuntumalla/run$i
+		make 
+		./DLCA_kg_edit >output.txt 
+		cd
+		rm -r clust_run$i.pbs.* 
+		EOF	
+	qsub $pbsfile
+	cd
+	echo sumbitting run$i
+}
+exit 0

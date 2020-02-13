@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+fold_nm="paper_run"
+
+for ((i=9;i<13;i++))
+{
+	temp_nm="$fold_nm$i"
+	echo $temp_nm
+	cd $temp_nm 	
+	qsub $temp_nm.pbs
+	cd ..
+	echo sumbitting $temp_nm
+}
+exit 0

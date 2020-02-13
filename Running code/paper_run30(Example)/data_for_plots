@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+echo make sure you are in the actual paper_run folder
+cd for_proc_data/
+make
+cd unfolder/
+make
+cd ..
+cd ..
+mkdir proc_data
+for ((i=1;i<=418;i++))
+{
+	cp data$i for_proc_data/unfolder/input
+	cd for_proc_data/unfolder/	
+	./unfolder 
+	cp output ../input	
+	rm output
+    	cd ..
+	./cluster_in_a_box
+	cp Lenghts ../proc_data$i
+   	cd ..
+	mv proc_data$i proc_data
+	mv data_time$i proc_data
+}
+exit 0

@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=80:00:00
+cd /research-projects/airlab/A_gowtham_simulations/paper_run30
+make 
+./DLCA_kg_edit >shell_output.txt 
+cd ..
+rm -r *.pbs.*
+
