@@ -1,2 +1,2 @@
 # Diffusion_limited_cluster_aggregation
-DLCA process. Statistical validation by high performance computing
+DLCA process. Statistical runs performed using high performance computing
