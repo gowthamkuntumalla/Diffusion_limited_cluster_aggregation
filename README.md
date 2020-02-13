@@ -1,2 +1,4 @@
-# Diffusion_limited_cluster_aggregation
-DLCA process. Statistical runs performed using high performance computing
+
+Keywords: Fractals, Gelation, Ballistic process, Diffusion limited cluster aggregation
+
+Statistical runs performed using high performance computing
